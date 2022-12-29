@@ -25,16 +25,14 @@ from tensorflow.keras.models import load_model
 
 def getPrediction(filename):
     
-    classes = ['Actinic keratoses', 'Basal cell carcinoma', 
-               'Benign keratosis-like lesions', 'Dermatofibroma', 'Melanoma', 
-               'Melanocytic nevi', 'Vascular lesions']
+    classes = ['Potato___Early_blight', 'Potato___healthyma', 'Potato___Late_blight']
     le = LabelEncoder()
     le.fit(classes)
     le.inverse_transform([2])
     
     
     #Load model
-    my_model=load_model("model/HAM10000_100epochs.h5")
+    my_model=load_model("model/potatoes.h5")
     
     SIZE = 32 #Resize to same size as training images
     img_path = 'static/images/'+filename
